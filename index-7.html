@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicios de Objetos JavaScript</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            padding: 20px;
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        h1 {
+            color: white;
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 2.5em;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        .seccion {
+            background-color: white;
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        .seccion h2 {
+            color: #f5576c;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #f5576c;
+        }
+        .ejercicio {
+            background-color: #f8f9fa;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            border-left: 4px solid #f5576c;
+        }
+        .ejercicio h3 {
+            color: #333;
+            margin-bottom: 15px;
+            font-size: 1.2em;
+        }
+        .input-group {
+            margin: 10px 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        label {
+            font-weight: bold;
+            min-width: 120px;
+            color: #555;
+        }
+        input {
+            padding: 10px;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            font-size: 14px;
+            flex: 1;
+            min-width: 200px;
+        }
+        input:focus {
+            outline: none;
+            border-color: #f5576c;
+        }
+        button {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: bold;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(245, 87, 108, 0.4);
+        }
+        button:active {
+            transform: translateY(0);
+        }
+        .resultado {
+            margin-top: 15px;
+            padding: 15px;
+            background-color: white;
+            border-radius: 5px;
+            border-left: 4px solid #28a745;
+            display: none;
+        }
+        .resultado.visible {
+            display: block;
+            animation: slideIn 0.3s ease;
+        }
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .propiedad {
+            background-color: #e9ecef;
+            padding: 8px 12px;
+            margin: 5px 0;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+            border-left: 3px solid #f5576c;
+        }
+        .metodo {
+            background-color: #d4edda;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 4px;
+            border-left: 3px solid #28a745;
+            font-family: 'Courier New', monospace;
+        }
+        .codigo {
+            background-color: #263238;
+            color: #aed581;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 10px 0;
+            font-family: 'Courier New', monospace;
+            font-size: 13px;
+            overflow-x: auto;
+        }
+        .nota-info {
+            background-color: #e7f3ff;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 20px;
+            border-left: 4px solid #0066cc;
+        }
+        .badge {
+            display: inline-block;
+            background-color: #f5576c;
+            color: white;
+            padding: 3px 10px;
+            border-radius: 12px;
+            font-size: 0.75em;
+            margin-left: 10px;
+        }
+        .objeto-visual {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 10px 0;
+        }
+        .objeto-visual strong {
+            color: #ffd700;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📦 Ejercicios de Objetos JavaScript</h1>
+        
+        <div class="seccion">
+            <h2>Objetos en JavaScript <span class="badge">6 ejercicios</span></h2>
+            
+            <!-- EJERCICIO 1 -->
+            <div class="ejercicio">
+                <h3>1. Objeto Persona (Propiedades Básicas)</h3>
+                <p>Crea un objeto con propiedades y muestra cada una en consola.</p>
+                <button onclick="ejercicioObjeto1()">Ejecutar Ejercicio 1</button>
+                <div id="resultadoObj1" class="resultado"></div>
+            </div>
+
+            <!-- EJERCICIO 2 -->
+            <div class="ejercicio">
+                <h3>2. Objeto Coche (con Método)</h3>
+                <p>Objeto con método que muestra descripción del coche.</p>
+                <div class="input-group">
+                    <label>Marca:</label>
+                    <input type="text" id="marca" placeholder="Ej: Toyota" value="Toyota">
+                </div>
+                <div class="input-group">
+                    <label>Modelo:</label>
+                    <input type="text" id="modelo" placeholder="Ej: Corolla" value="Corolla">
+                </div>
+                <div class="input-group">
+                    <label>Año:</label>
+                    <input type="number" id="anio" placeholder="Ej: 2023" value="2023">
+                    <button onclick="ejercicioObjeto2()">Crear Coche</button>
+                </div>
+                <div id="resultadoObj2" class="resultado"></div>
+            </div>
+
+            <!-- EJERCICIO 3 -->
+            <div class="ejercicio">
+                <h3>3. Objeto Rectángulo (Método Calcular)</h3>
+                <p>Objeto con método para calcular área del rectángulo.</p>
+                <div class="input-group">
+                    <label>Ancho:</label>
+                    <input type="number" id="ancho" placeholder="Ej: 10" value="10">
+                </div>
+                <div class="input-group">
+                    <label>Alto:</label>
+                    <input type="number" id="alto" placeholder="Ej: 5" value="5">
+                    <button onclick="ejercicioObjeto3()">Calcular Área</button>
+                </div>
+                <div id="resultadoObj3" class="resultado"></div>
+            </div>
+
+            <!-- EJERCICIO 4 -->
+            <div class="ejercicio">
+                <h3>4. Objeto Libro (Descripción)</h3>
+                <p>Objeto con método que muestra descripción del libro.</p>
+                <div class="input-group">
+                    <label>Título:</label>
+                    <input type="text" id="titulo" placeholder="Ej: Cien años de soledad" value="Cien años de soledad">
+                </div>
+                <div class="input-group">
+                    <label>Autor:</label>
+                    <input type="text" id="autor" placeholder="Ej: Gabriel García Márquez" value="Gabriel García Márquez">
+                </div>
+                <div class="input-group">
+                    <label>Año:</label>
+                    <input type="number" id="anioLibro" placeholder="Ej: 1967" value="1967">
+                    <button onclick="ejercicioObjeto4()">Ver Descripción</button>
+                </div>
+                <div id="resultadoObj4" class="resultado"></div>
+            </div>
+
+            <!-- EJERCICIO 5 -->
+            <div class="ejercicio">
+                <h3>5. Objeto Usuario (Verificar Contraseña)</h3>
+                <p>Objeto con método que verifica si la contraseña es correcta.</p>
+                <div class="input-group">
+                    <label>Nombre:</label>
+                    <input type="text" id="nombreUsuario" placeholder="Ej: Juan" value="Juan">
+                </div>
+                <div class="input-group">
+                    <label>Contraseña:</label>
+                    <input type="password" id="contrasena" placeholder="Intenta con: 123456">
+                    <button onclick="ejercicioObjeto5()">Verificar</button>
+                </div>
+                <div id="resultadoObj5" class="resultado"></div>
+            </div>
+
+            <!-- EJERCICIO 6 -->
+            <div class="ejercicio">
+                <h3>6. Objeto Gato (Mensaje con Info)</h3>
+                <p>Objeto con método que devuelve mensaje con nombre y edad del gato.</p>
+                <div class="input-group">
+                    <label>Nombre del gato:</label>
+                    <input type="text" id="nombreGato" placeholder="Ej: Michi" value="Michi">
+                </div>
+                <div class="input-group">
+                    <label>Edad:</label>
+                    <input type="number" id="edadGato" placeholder="Ej: 3" value="3">
+                    <button onclick="ejercicioObjeto6()">Ver Mensaje</button>
+                </div>
+                <div id="resultadoObj6" class="resultado"></div>
+            </div>
+        </div>
+
+        <div class="nota-info">
+            <strong>💡 Nota:</strong> Abre la consola del navegador (F12) para ver la estructura completa de cada objeto y cómo se accede a sus propiedades y métodos.
+        </div>
+    </div>
+
+    <script src="js/script-7.js"></script>
+</body>
+</html>

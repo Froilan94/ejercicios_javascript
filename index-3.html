@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicios de Funciones JavaScript</title>
+    <link rel="stylesheet" href="css/styles-3.css">
+</head>
+<body>
+    <h1>Ejercicios de Funciones en JavaScript</h1>
+    
+    <div class="ejercicio">
+        <h2>Ejercicio 1: Suma de Dos Números</h2>
+        <p>Función que suma dos números y retorna el resultado.</p>
+        <div class="input-group">
+            <label>Número 1:</label>
+            <input type="number" id="suma1" placeholder="Ej: 5" value="10">
+        </div>
+        <div class="input-group">
+            <label>Número 2:</label>
+            <input type="number" id="suma2" placeholder="Ej: 3" value="20">
+        </div>
+        <button onclick="ejecutarEjercicio1()">Sumar</button>
+        <div id="resultado1" class="resultado" style="display:none;"></div>
+    </div>
+
+    <div class="ejercicio">
+        <h2>Ejercicio 2: Saludo Personalizado</h2>
+        <p>Función que recibe un nombre y muestra un saludo.</p>
+        <div class="input-group">
+            <label>Tu nombre:</label>
+            <input type="text" id="nombre" placeholder="Ej: María">
+        </div>
+        <button onclick="ejecutarEjercicio2()">Saludar</button>
+        <div id="resultado2" class="resultado" style="display:none;"></div>
+    </div>
+
+    <div class="ejercicio">
+        <h2>Ejercicio 3: Área de un Círculo</h2>
+        <p>Función que calcula el área de un círculo (π × r²).</p>
+        <div class="input-group">
+            <label>Radio:</label>
+            <input type="number" id="radio" placeholder="Ej: 5" value="7">
+        </div>
+        <button onclick="ejecutarEjercicio3()">Calcular Área</button>
+        <div id="resultado3" class="resultado" style="display:none;"></div>
+    </div>
+
+    <div class="ejercicio">
+        <h2>Ejercicio 4: Número Mayor</h2>
+        <p>Función que retorna el mayor de dos números.</p>
+        <div class="input-group">
+            <label>Número 1:</label>
+            <input type="number" id="mayor1" placeholder="Ej: 15" value="25">
+        </div>
+        <div class="input-group">
+            <label>Número 2:</label>
+            <input type="number" id="mayor2" placeholder="Ej: 8" value="18">
+        </div>
+        <button onclick="ejecutarEjercicio4()">Comparar</button>
+        <div id="resultado4" class="resultado" style="display:none;"></div>
+    </div>
+
+    <div class="ejercicio">
+        <h2>Ejercicio 5: Par o Impar</h2>
+        <p>Función que retorna true si es par, false si es impar.</p>
+        <div class="input-group">
+            <label>Número:</label>
+            <input type="number" id="numero" placeholder="Ej: 7" value="8">
+        </div>
+        <button onclick="ejecutarEjercicio5()">Verificar</button>
+        <div id="resultado5" class="resultado" style="display:none;"></div>
+    </div>
+
+    <div class="ejercicio">
+        <h2>Ejercicio 6: Promedio de un Array</h2>
+        <p>Función que calcula el promedio de números en un array.</p>
+        <div class="input-group">
+            <label>Números:</label>
+            <input type="text" id="numeros" placeholder="Ej: 5,8,10,12" value="10,20,30,40,50">
+            <small style="display:block; margin-left:105px; color:#666;">
+                (Separados por comas)
+            </small>
+        </div>
+        <button onclick="ejecutarEjercicio6()">Calcular Promedio</button>
+        <div id="resultado6" class="resultado" style="display:none;"></div>
+    </div>
+
+    <div class="nota">
+        <strong>Nota:</strong> Abre la consola del navegador (F12) para ver los resultados detallados en console.log()
+    </div>
+
+    <script src="js/script-3.js"></script>
+</body>
+</html>

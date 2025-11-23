@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Operador Ternario y Ciclos</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 20px;
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        h1 {
+            color: white;
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 2.5em;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        .seccion {
+            background-color: white;
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        .seccion h2 {
+            color: #667eea;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #667eea;
+        }
+        .ejercicio {
+            background-color: #f8f9fa;
+            padding: 15px;
+            margin-bottom: 15px;
+            border-radius: 8px;
+            border-left: 4px solid #667eea;
+        }
+        .ejercicio h3 {
+            color: #333;
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+        .input-group {
+            margin: 10px 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        label {
+            font-weight: bold;
+            min-width: 140px;
+            color: #555;
+        }
+        input {
+            padding: 10px;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            font-size: 14px;
+            flex: 1;
+            min-width: 200px;
+        }
+        input:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+        button {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: bold;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+        button:active {
+            transform: translateY(0);
+        }
+        button.reset {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            padding: 10px 20px;
+            font-size: 13px;
+        }
+        .resultado {
+            margin-top: 10px;
+            padding: 15px;
+            background-color: white;
+            border-radius: 5px;
+            border-left: 4px solid #28a745;
+            font-family: 'Courier New', monospace;
+            display: none;
+            max-height: 400px;
+            overflow-y: auto;
+        }
+        .resultado.visible {
+            display: block;
+            animation: slideIn 0.3s ease;
+        }
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .nota-info {
+            background-color: #e7f3ff;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 20px;
+            border-left: 4px solid #0066cc;
+        }
+        .badge {
+            display: inline-block;
+            background-color: #667eea;
+            color: white;
+            padding: 3px 10px;
+            border-radius: 12px;
+            font-size: 0.75em;
+            margin-left: 10px;
+        }
+        .badge.ternario {
+            background-color: #f5576c;
+        }
+        .badge.for {
+            background-color: #f093fb;
+        }
+        .badge.while {
+            background-color: #4facfe;
+        }
+        .badge.dowhile {
+            background-color: #43e97b;
+        }
+        .lista-numeros {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px;
+            margin-top: 10px;
+        }
+        .numero-item {
+            background-color: #667eea;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🔄 Operador Ternario y Ciclos</h1>
+        
+        <!-- SECCIÓN OPERADOR TERNARIO -->
+        <div class="seccion">
+            <h2>⚡ Operador Ternario <span class="badge ternario">5 ejercicios</span></h2>
+            
+            <div class="ejercicio">
+                <h3>1. Mayor o Menor de Edad</h3>
+                <div class="input-group">
+                    <label>Edad:</label>
+                    <input type="number" id="tern1" placeholder="Ingresa tu edad">
+                    <button onclick="ejercicioTern1()">Verificar</button>
+                </div>
+                <div id="resultadoTern1" class="resultado"></div>
+            </div>
+
+            <div class="ejercicio">
+                <h3>2. Par o Impar</h3>
+                <div class="input-group">
+                    <label>Número:</label>
+                    <input type="number" id="tern2" placeholder="Ingresa un número">
+                    <button onclick="ejercicioTern2()">Verificar</button>
+                </div>
+                <div id="resultadoTern2" class="resultado"></div>
+            </div>
+
+            <div class="ejercicio">
+                <h3>3. Número Mayor</h3>
+                <div class="input-group">
+                    <label>Número 1:</label>
+                    <input type="number" id="tern3a" placeholder="Primer número">
+                </div>
+                <div class="input-group">
+                    <label>Número 2:</label>
+                    <input type="number" id="tern3b" placeholder="Segundo número">
+                    <button onclick="ejercicioTern3()">Comparar</button>
+                </div>
+                <div id="resultadoTern3" class="resultado"></div>
+            </div>
+
+            <div class="ejercicio">
+                <h3>4. Temperatura (Calor/Frío)</h3>
+                <div class="input-group">
+                    <label>Temperatura (°C):</label>
+                    <input type="number" id="tern4" placeholder="Ej: 25">
+                    <button onclick="ejercicioTern4()">Verificar</button>
+                </div>
+                <div id="resultadoTern4" class="resultado"></div>
+            </div>
+
+            <div class="ejercicio">
+                <h3>5. Puede Votar (≥ 18 años)</h3>
+                <div class="input-group">
+                    <label>Año de nacimiento:</label>
+                    <input type="number" id="tern5" placeholder="Ej: 2000">
+                    <button onclick="ejercicioTern5()">Verificar</button>
+                </div>
+                <div id="resultadoTern5" class="resultado"></div>
+            </div>
+        </div>
+
+        <!-- SECCIÓN CICLOS -->
+        <div class="seccion">
+            <h2>🔁 Ciclos (for, while, do while) <span class="badge">6 ejercicios</span></h2>
+            
+            <div class="ejercicio">
+                <h3>1. Números del 1 al 10 <span class="badge for">for</span></h3>
+                <div class="input-group">
+                    <button onclick="ejercicioCiclo1()">Mostrar Números</button>
+                </div>
+                <div id="resultadoCiclo1" class="resultado"></div>
+            </div>
+
+            <div class="ejercicio">
+                <h3>2. Suma del 1 al 100 <span class="badge while">while</span></h3>
+                <div class="input-group">
+                    <button onclick="ejercicioCiclo2()">Calcular Suma</button>
+                </div>
+                <div id="resultadoCiclo2" class="resultado"></div>
+            </div>
+
+            <div class="ejercicio">
+                <h3>3. Tabla de Multiplicar <span class="badge for">for</span></h3>
+                <div class="input-group">
+                    <label>Número:</label>
+                    <input type="number" id="ciclo3" placeholder="Ej: 7" value="5">
+                    <button onclick="ejercicioCiclo3()">Ver Tabla</button>
+                </div>
+                <div id="resultadoCiclo3" class="resultado"></div>
+            </div>
+
+            <div class="ejercicio">
+                <h3>4. Primeros 10 Números Pares <span class="badge while">while</span></h3>
+                <div class="input-group">
+                    <button onclick="ejercicioCiclo4()">Mostrar Pares</button>
+                </div>
+                <div id="resultadoCiclo4" class="resultado"></div>
+            </div>
+
+            <div class="ejercicio">
+                <h3>5. Ingresar Números hasta Negativo <span class="badge dowhile">do while</span></h3>
+                <div class="input-group">
+                    <button onclick="ejercicioCiclo5()">Iniciar</button>
+                    <button class="reset" onclick="resetCiclo5()">Reiniciar</button>
+                </div>
+                <div id="resultadoCiclo5" class="resultado"></div>
+            </div>
+
+            <div class="ejercicio">
+                <h3>6. Contar letra 'a' en palabra <span class="badge for">for</span></h3>
+                <div class="input-group">
+                    <label>Palabra:</label>
+                    <input type="text" id="ciclo6" placeholder="Ej: Guatemala">
+                    <button onclick="ejercicioCiclo6()">Contar</button>
+                </div>
+                <div id="resultadoCiclo6" class="resultado"></div>
+            </div>
+        </div>
+
+        <div class="nota-info">
+            <strong>💡 Nota:</strong> Abre la consola del navegador (F12) para ver el código ejecutado paso a paso y los resultados detallados de cada ejercicio.
+        </div>
+    </div>
+
+    <script src="js/script-6.js"></script>
+</body>
+</html>

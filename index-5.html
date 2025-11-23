@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicios Completos de Condicionales</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 20px;
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        h1 {
+            color: white;
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 2.5em;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        .seccion {
+            background-color: white;
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        .seccion h2 {
+            color: #667eea;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #667eea;
+        }
+        .ejercicio {
+            background-color: #f8f9fa;
+            padding: 15px;
+            margin-bottom: 15px;
+            border-radius: 8px;
+            border-left: 4px solid #667eea;
+        }
+        .ejercicio h3 {
+            color: #333;
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+        .input-group {
+            margin: 10px 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        label {
+            font-weight: bold;
+            min-width: 120px;
+            color: #555;
+        }
+        input, select {
+            padding: 10px;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            font-size: 14px;
+            flex: 1;
+            min-width: 200px;
+        }
+        input:focus, select:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+        button {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: bold;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+        button:active {
+            transform: translateY(0);
+        }
+        .resultado {
+            margin-top: 10px;
+            padding: 15px;
+            background-color: white;
+            border-radius: 5px;
+            border-left: 4px solid #28a745;
+            font-family: 'Courier New', monospace;
+            display: none;
+        }
+        .resultado.visible {
+            display: block;
+            animation: slideIn 0.3s ease;
+        }
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .nota-info {
+            background-color: #e7f3ff;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 20px;
+            border-left: 4px solid #0066cc;
+        }
+        .badge {
+            display: inline-block;
+            background-color: #667eea;
+            color: white;
+            padding: 3px 10px;
+            border-radius: 12px;
+            font-size: 0.75em;
+            margin-left: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎯 Ejercicios Completos de Condicionales</h1>
+        
+        <!-- SECCIÓN IF -->
+        <div class="seccion">
+            <h2>📘 Condicionales IF <span class="badge">5 ejercicios</span></h2>
+            
+            <div class="ejercicio">
+                <h3>1. Mayor que 10</h3>
+                <div class="input-group">
+                    <label>Número:</label>
+                    <input type="number" id="if1" placeholder="Ingresa un número">
+                    <button onclick="ejercicioIf1()">Verificar</button>
+                </div>
+                <div id="resultadoIf1" class="resultado"></div>
+            </div>
+
+            <div class="ejercicio">
+                <h3>2. Mayor de 18 años</h3>
+                <div class="input-group">
+                    <label>Edad:</label>
+                    <input type="number" id="if2" placeholder="Ingresa tu edad">
+                    <button onclick="ejercicioIf2()">Verificar</button>
+                </div>
+                <div id="resultadoIf2" class="resultado"></div>
+            </div>
+
+            <div class="ejercicio">
+                <h3>3. Calificación Aprobada (> 50)</h3>
+                <div class="input-group">
+                    <label>Calificación:</label>
+                    <input type="number" id="if3" placeholder="0-100" min="0" max="100">
+                    <button onclick="ejercicioIf3()">Verificar</button>
+                </div>
+                <div id="resultadoIf3" class="resultado"></div>
+            </div>
+
+            <div class="ejercicio">
+                <h3>4. Número Positivo</h3>
+                <div class="input-group">
+                    <label>Número:</label>
+                    <input type="number" id="if4" placeholder="Ingresa un número">
+                    <button onclick="ejercicioIf4()">Verificar</button>
+                </div>
+                <div id="resultadoIf4" class="resultado"></div>
+            </div>
+
+            <div class="ejercicio">
+                <h3>5. Comparar Dos Números</h3>
+                <div class="input-group">
+                    <label>Número 1:</label>
+                    <input type="number" id="if5a" placeholder="Primer número">
+                </div>
+                <div class="input-group">
+                    <label>Número 2:</label>
+                    <input type="number" id="if5b" placeholder="Segundo número">
+                    <button onclick="ejercicioIf5()">Comparar</button>
+                </div>
+                <div id="resultadoIf5" class="resultado"></div>
+            </div>
+        </div>
+
+        <!-- SECCIÓN IF ELSE -->
+        <div class="seccion">
+            <h2>📗 Condicionales IF ELSE <span class="badge">5 ejercicios</span></h2>
+            
+            <div class="ejercicio">
+                <h3>1. Temperatura (Frío/Calor)</h3>
+                <div class="input-group">
+                    <label>Temperatura (°C):</label>
+                    <input type="number" id="ifelse1" placeholder="Ej: 25">
+                    <button onclick="ejercicioIfElse1()">Verificar</button>
+                </div>
+                <div id="resultadoIfElse1" class="resultado"></div>
+            </div>
+
+            <div class="ejercicio">
+                <h3>2. Mayor o Menor de Edad</h3>
+                <div class="input-group">
+                    <label>Edad:</label>
+                    <input type="number" id="ifelse2" placeholder="Ingresa tu edad">
+                    <button onclick="ejercicioIfElse2()">Verificar</button>
+                </div>
+                <div id="resultadoIfElse2" class="resultado"></div>
+            </div>
+
+            <div class="ejercicio">
+                <h3>3. Par o Impar</h3>
+                <div class="input-group">
+                    <label>Número:</label>
+                    <input type="number" id="ifelse3" placeholder="Ingresa un número">
+                    <button onclick="ejercicioIfElse3()">Verificar</button>
+                </div>
+                <div id="resultadoIfElse3" class="resultado"></div>
+            </div>
+
+            <div class="ejercicio">
+                <h3>4. Aprobado o Reprobado (≥ 60)</h3>
+                <div class="input-group">
+                    <label>Calificación:</label>
+                    <input type="number" id="ifelse4" placeholder="0-100" min="0" max="100">
+                    <button onclick="ejercicioIfElse4()">Verificar</button>
+                </div>
+                <div id="resultadoIfElse4" class="resultado"></div>
+            </div>
+
+            <div class="ejercicio">
+                <h3>5. Positivo, Negativo o Cero</h3>
+                <div class="input-group">
+                    <label>Número:</label>
+                    <input type="number" id="ifelse5" placeholder="Ingresa un número">
+                    <button onclick="ejercicioIfElse5()">Verificar</button>
+                </div>
+                <div id="resultadoIfElse5" class="resultado"></div>
+            </div>
+        </div>
+
+        <!-- SECCIÓN SWITCH -->
+        <div class="seccion">
+            <h2>📙 Condicionales SWITCH <span class="badge">5 ejercicios</span></h2>
+            
+            <div class="ejercicio">
+                <h3>1. Día de la Semana (1-7)</h3>
+                <div class="input-group">
+                    <label>Número (1-7):</label>
+                    <input type="number" id="switch1" placeholder="1=Lunes, 7=Domingo" min="1" max="7">
+                    <button onclick="ejercicioSwitch1()">Ver Día</button>
+                </div>
+                <div id="resultadoSwitch1" class="resultado"></div>
+            </div>
+
+            <div class="ejercicio">
+                <h3>2. Calificación por Letra (A, B, C)</h3>
+                <div class="input-group">
+                    <label>Letra:</label>
+                    <select id="switch2">
+                        <option value="">Selecciona...</option>
+                        <option value="A">A</option>
+                        <option value="B">B</option>
+                        <option value="C">C</option>
+                    </select>
+                    <button onclick="ejercicioSwitch2()">Verificar</button>
+                </div>
+                <div id="resultadoSwitch2" class="resultado"></div>
+            </div>
+
+            <div class="ejercicio">
+                <h3>3. Mes del Año (1-12)</h3>
+                <div class="input-group">
+                    <label>Número (1-12):</label>
+                    <input type="number" id="switch3" placeholder="1=Enero, 12=Diciembre" min="1" max="12">
+                    <button onclick="ejercicioSwitch3()">Ver Mes</button>
+                </div>
+                <div id="resultadoSwitch3" class="resultado"></div>
+            </div>
+
+            <div class="ejercicio">
+                <h3>4. Par o Impar con Switch</h3>
+                <div class="input-group">
+                    <label>Número:</label>
+                    <input type="number" id="switch4" placeholder="Ingresa un número">
+                    <button onclick="ejercicioSwitch4()">Verificar</button>
+                </div>
+                <div id="resultadoSwitch4" class="resultado"></div>
+            </div>
+
+            <div class="ejercicio">
+                <h3>5. Semáforo (Verde, Amarillo, Rojo)</h3>
+                <div class="input-group">
+                    <label>Color:</label>
+                    <select id="switch5">
+                        <option value="">Selecciona...</option>
+                        <option value="verde">🟢 Verde</option>
+                        <option value="amarillo">🟡 Amarillo</option>
+                        <option value="rojo">🔴 Rojo</option>
+                    </select>
+                    <button onclick="ejercicioSwitch5()">Verificar</button>
+                </div>
+                <div id="resultadoSwitch5" class="resultado"></div>
+            </div>
+        </div>
+
+        <div class="nota-info">
+            <strong>💡 Nota:</strong> Abre la consola del navegador (F12) para ver el código ejecutado y los resultados detallados de cada ejercicio.
+        </div>
+    </div>
+
+    <script src="condicionales-completo.js"></script>
+</body>
+</html>

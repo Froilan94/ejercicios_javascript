@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicios de Arrays JavaScript</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            padding: 20px;
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        h1 {
+            color: white;
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 2.5em;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        .seccion {
+            background-color: white;
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        .seccion h2 {
+            color: #00f2fe;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #00f2fe;
+        }
+        .ejercicio {
+            background-color: #f8f9fa;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            border-left: 4px solid #4facfe;
+        }
+        .ejercicio h3 {
+            color: #333;
+            margin-bottom: 15px;
+            font-size: 1.2em;
+        }
+        .input-group {
+            margin: 10px 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        label {
+            font-weight: bold;
+            min-width: 100px;
+            color: #555;
+        }
+        input {
+            padding: 10px;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            font-size: 14px;
+            flex: 1;
+            min-width: 200px;
+        }
+        input:focus {
+            outline: none;
+            border-color: #4facfe;
+        }
+        button {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: bold;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(79, 172, 254, 0.4);
+        }
+        button:active {
+            transform: translateY(0);
+        }
+        .resultado {
+            margin-top: 15px;
+            padding: 15px;
+            background-color: white;
+            border-radius: 5px;
+            border-left: 4px solid #28a745;
+            display: none;
+        }
+        .resultado.visible {
+            display: block;
+            animation: slideIn 0.3s ease;
+        }
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .array-visual {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 10px 0;
+            font-family: 'Courier New', monospace;
+        }
+        .array-items {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin: 10px 0;
+        }
+        .array-item {
+            background-color: #4facfe;
+            color: white;
+            padding: 8px 15px;
+            border-radius: 5px;
+            font-weight: bold;
+            font-family: 'Courier New', monospace;
+        }
+        .objeto-item {
+            background-color: #f8f9fa;
+            border: 2px solid #4facfe;
+            padding: 12px;
+            margin: 8px 0;
+            border-radius: 6px;
+        }
+        .codigo {
+            background-color: #263238;
+            color: #aed581;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 10px 0;
+            font-family: 'Courier New', monospace;
+            font-size: 12px;
+            overflow-x: auto;
+        }
+        .nota-info {
+            background-color: #e7f3ff;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 20px;
+            border-left: 4px solid #0066cc;
+        }
+        .badge {
+            display: inline-block;
+            background-color: #4facfe;
+            color: white;
+            padding: 3px 10px;
+            border-radius: 12px;
+            font-size: 0.75em;
+            margin-left: 10px;
+        }
+        .badge.objetos {
+            background-color: #f093fb;
+        }
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(600px, 1fr));
+            gap: 20px;
+        }
+        @media (max-width: 768px) {
+            .grid-2 {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📚 Ejercicios de Arrays JavaScript</h1>
+        
+        <div class="grid-2">
+            <!-- SECCIÓN ARRAYS SIMPLES -->
+            <div class="seccion">
+                <h2>Arrays Simples <span class="badge">6 ejercicios</span></h2>
+                
+                <div class="ejercicio">
+                    <h3>1. Primer y Último Elemento</h3>
+                    <button onclick="ejercicioArray1()">Ejecutar</button>
+                    <div id="resultadoArr1" class="resultado"></div>
+                </div>
+
+                <div class="ejercicio">
+                    <h3>2. Segunda Ciudad</h3>
+                    <button onclick="ejercicioArray2()">Ejecutar</button>
+                    <div id="resultadoArr2" class="resultado"></div>
+                </div>
+
+                <div class="ejercicio">
+                    <h3>3. Suma de Números</h3>
+                    <button onclick="ejercicioArray3()">Ingresar Números</button>
+                    <div id="resultadoArr3" class="resultado"></div>
+                </div>
+
+                <div class="ejercicio">
+                    <h3>4. Recorrer Array de Palabras</h3>
+                    <button onclick="ejercicioArray4()">Ejecutar</button>
+                    <div id="resultadoArr4" class="resultado"></div>
+                </div>
+
+                <div class="ejercicio">
+                    <h3>5. Pedir 5 Nombres</h3>
+                    <button onclick="ejercicioArray5()">Ingresar Nombres</button>
+                    <div id="resultadoArr5" class="resultado"></div>
+                </div>
+
+                <div class="ejercicio">
+                    <h3>6. Números Mayores a 50</h3>
+                    <button onclick="ejercicioArray6()">Ingresar Números</button>
+                    <div id="resultadoArr6" class="resultado"></div>
+                </div>
+            </div>
+
+            <!-- SECCIÓN ARRAYS DE OBJETOS -->
+            <div class="seccion">
+                <h2>Arrays de Objetos <span class="badge objetos">6 ejercicios</span></h2>
+                
+                <div class="ejercicio">
+                    <h3>1. Array de Personas</h3>
+                    <button onclick="ejercicioArrayObj1()">Ejecutar</button>
+                    <div id="resultadoArrObj1" class="resultado"></div>
+                </div>
+
+                <div class="ejercicio">
+                    <h3>2. Array de Coches</h3>
+                    <button onclick="ejercicioArrayObj2()">Ejecutar</button>
+                    <div id="resultadoArrObj2" class="resultado"></div>
+                </div>
+
+                <div class="ejercicio">
+                    <h3>3. Productos > 100</h3>
+                    <button onclick="ejercicioArrayObj3()">Ejecutar</button>
+                    <div id="resultadoArrObj3" class="resultado"></div>
+                </div>
+
+                <div class="ejercicio">
+                    <h3>4. Alumnos Aprobados</h3>
+                    <button onclick="ejercicioArrayObj4()">Ejecutar</button>
+                    <div id="resultadoArrObj4" class="resultado"></div>
+                </div>
+
+                <div class="ejercicio">
+                    <h3>5. Títulos de Libros</h3>
+                    <button onclick="ejercicioArrayObj5()">Ejecutar</button>
+                    <div id="resultadoArrObj5" class="resultado"></div>
+                </div>
+
+                <div class="ejercicio">
+                    <h3>6. Películas</h3>
+                    <button onclick="ejercicioArrayObj6()">Ejecutar</button>
+                    <div id="resultadoArrObj6" class="resultado"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="nota-info">
+            <strong>💡 Nota:</strong> Abre la consola del navegador (F12) para ver los detalles completos de cada array, sus índices y cómo se recorren.
+        </div>
+    </div>
+
+    <script src="js/script-8.js"></script>
+</body>
+</html>

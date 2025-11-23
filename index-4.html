@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicios de Estructuras Condicionales</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 900px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #f0f4f8;
+        }
+        .ejercicio {
+            background-color: white;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+        h2 {
+            color: #555;
+            border-bottom: 2px solid #6f42c1;
+            padding-bottom: 10px;
+        }
+        .tipo-condicional {
+            display: inline-block;
+            background-color: #6f42c1;
+            color: white;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 12px;
+            margin-left: 10px;
+        }
+        button {
+            background-color: #6f42c1;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+            margin: 5px;
+        }
+        button:hover {
+            background-color: #5a32a3;
+        }
+        input {
+            padding: 10px;
+            border: 2px solid #ddd;
+            border-radius: 4px;
+            margin: 5px;
+            font-size: 14px;
+            width: 200px;
+        }
+        input:focus {
+            outline: none;
+            border-color: #6f42c1;
+        }
+        .resultado {
+            margin-top: 15px;
+            padding: 15px;
+            background-color: #f8f9fa;
+            border-radius: 4px;
+            font-family: monospace;
+            border-left: 4px solid #6f42c1;
+        }
+        .aprobado {
+            color: #28a745;
+            font-weight: bold;
+        }
+        .reprobado {
+            color: #dc3545;
+            font-weight: bold;
+        }
+        .nota {
+            background-color: #e7f3ff;
+            padding: 12px;
+            border-radius: 4px;
+            margin-top: 10px;
+            font-size: 14px;
+            border-left: 4px solid #0066cc;
+        }
+        .input-group {
+            margin: 10px 0;
+        }
+        label {
+            display: inline-block;
+            width: 140px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>Estructuras Condicionales en JavaScript</h1>
+    
+    <div class="ejercicio">
+        <h2>Ejercicio 1: Calificación 
+            <span class="tipo-condicional">if</span>
+        </h2>
+        <p>Verifica si el estudiante aprobó (≥ 60 puntos).</p>
+        <div class="input-group">
+            <label>Calificación:</label>
+            <input type="number" id="calificacion" placeholder="Ej: 75" min="0" max="100">
+        </div>
+        <button onclick="ejecutarEjercicio1()">Verificar Calificación</button>
+        <div id="resultado1" class="resultado" style="display:none;"></div>
+    </div>
+
+    <div class="ejercicio">
+        <h2>Ejercicio 2: Positivo, Negativo o Cero 
+            <span class="tipo-condicional">if else</span>
+        </h2>
+        <p>Determina si un número es positivo, negativo o cero.</p>
+        <div class="input-group">
+            <label>Número:</label>
+            <input type="number" id="numero1" placeholder="Ej: -5">
+        </div>
+        <button onclick="ejecutarEjercicio2()">Verificar Número</button>
+        <div id="resultado2" class="resultado" style="display:none;"></div>
+    </div>
+
+    <div class="ejercicio">
+        <h2>Ejercicio 3: Día de la Semana 
+            <span class="tipo-condicional">switch</span>
+        </h2>
+        <p>Ingresa un número del 1 al 7 para conocer el día de la semana.</p>
+        <div class="input-group">
+            <label>Número (1-7):</label>
+            <input type="number" id="numeroDia" placeholder="Ej: 3" min="1" max="7">
+        </div>
+        <button onclick="ejecutarEjercicio3()">Ver Día</button>
+        <div id="resultado3" class="resultado" style="display:none;"></div>
+    </div>
+
+    <div class="ejercicio">
+        <h2>Ejercicio 4: Comparar Números 
+            <span class="tipo-condicional">operador ternario</span>
+        </h2>
+        <p>Determina cuál de dos números es mayor usando operador ternario.</p>
+        <div class="input-group">
+            <label>Número 1:</label>
+            <input type="number" id="num1" placeholder="Ej: 15">
+        </div>
+        <div class="input-group">
+            <label>Número 2:</label>
+            <input type="number" id="num2" placeholder="Ej: 20">
+        </div>
+        <button onclick="ejecutarEjercicio4()">Comparar</button>
+        <div id="resultado4" class="resultado" style="display:none;"></div>
+    </div>
+
+    <div class="ejercicio">
+        <h2>Ejercicio 5: Mayor de Edad 
+            <span class="tipo-condicional">if else</span>
+        </h2>
+        <p>Verifica si eres mayor de edad (≥ 18 años).</p>
+        <div class="input-group">
+            <label>Tu edad:</label>
+            <input type="number" id="edad" placeholder="Ej: 21" min="0">
+        </div>
+        <button onclick="ejecutarEjercicio5()">Verificar Edad</button>
+        <div id="resultado5" class="resultado" style="display:none;"></div>
+    </div>
+
+    <div class="ejercicio">
+        <h2>Ejercicio 6: Divisibilidad 
+            <span class="tipo-condicional">switch</span>
+        </h2>
+        <p>Verifica si un número es divisible por 3, 5 o ambos.</p>
+        <div class="input-group">
+            <label>Número:</label>
+            <input type="number" id="numeroDivisible" placeholder="Ej: 15">
+        </div>
+        <button onclick="ejecutarEjercicio6()">Verificar Divisibilidad</button>
+        <div id="resultado6" class="resultado" style="display:none;"></div>
+    </div>
+
+    <div class="nota">
+        <strong>💡 Nota:</strong> Abre la consola del navegador (F12) para ver el código ejecutado y los resultados detallados.
+    </div>
+
+    <script src="condicionales.js"></script>
+</body>
+</html>
