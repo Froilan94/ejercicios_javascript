@@ -4,171 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ejercicios de Objetos JavaScript</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-            padding: 20px;
-            min-height: 100vh;
-        }
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        h1 {
-            color: white;
-            text-align: center;
-            margin-bottom: 30px;
-            font-size: 2.5em;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-        }
-        .seccion {
-            background-color: white;
-            border-radius: 12px;
-            padding: 25px;
-            margin-bottom: 30px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-        }
-        .seccion h2 {
-            color: #f5576c;
-            margin-bottom: 20px;
-            padding-bottom: 10px;
-            border-bottom: 3px solid #f5576c;
-        }
-        .ejercicio {
-            background-color: #f8f9fa;
-            padding: 20px;
-            margin-bottom: 20px;
-            border-radius: 8px;
-            border-left: 4px solid #f5576c;
-        }
-        .ejercicio h3 {
-            color: #333;
-            margin-bottom: 15px;
-            font-size: 1.2em;
-        }
-        .input-group {
-            margin: 10px 0;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            flex-wrap: wrap;
-        }
-        label {
-            font-weight: bold;
-            min-width: 120px;
-            color: #555;
-        }
-        input {
-            padding: 10px;
-            border: 2px solid #ddd;
-            border-radius: 5px;
-            font-size: 14px;
-            flex: 1;
-            min-width: 200px;
-        }
-        input:focus {
-            outline: none;
-            border-color: #f5576c;
-        }
-        button {
-            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-            color: white;
-            border: none;
-            padding: 12px 25px;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 14px;
-            font-weight: bold;
-            transition: transform 0.2s, box-shadow 0.2s;
-        }
-        button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(245, 87, 108, 0.4);
-        }
-        button:active {
-            transform: translateY(0);
-        }
-        .resultado {
-            margin-top: 15px;
-            padding: 15px;
-            background-color: white;
-            border-radius: 5px;
-            border-left: 4px solid #28a745;
-            display: none;
-        }
-        .resultado.visible {
-            display: block;
-            animation: slideIn 0.3s ease;
-        }
-        @keyframes slideIn {
-            from {
-                opacity: 0;
-                transform: translateY(-10px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        .propiedad {
-            background-color: #e9ecef;
-            padding: 8px 12px;
-            margin: 5px 0;
-            border-radius: 4px;
-            font-family: 'Courier New', monospace;
-            border-left: 3px solid #f5576c;
-        }
-        .metodo {
-            background-color: #d4edda;
-            padding: 10px;
-            margin: 10px 0;
-            border-radius: 4px;
-            border-left: 3px solid #28a745;
-            font-family: 'Courier New', monospace;
-        }
-        .codigo {
-            background-color: #263238;
-            color: #aed581;
-            padding: 15px;
-            border-radius: 5px;
-            margin: 10px 0;
-            font-family: 'Courier New', monospace;
-            font-size: 13px;
-            overflow-x: auto;
-        }
-        .nota-info {
-            background-color: #e7f3ff;
-            padding: 15px;
-            border-radius: 8px;
-            margin-top: 20px;
-            border-left: 4px solid #0066cc;
-        }
-        .badge {
-            display: inline-block;
-            background-color: #f5576c;
-            color: white;
-            padding: 3px 10px;
-            border-radius: 12px;
-            font-size: 0.75em;
-            margin-left: 10px;
-        }
-        .objeto-visual {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 15px;
-            border-radius: 8px;
-            margin: 10px 0;
-        }
-        .objeto-visual strong {
-            color: #ffd700;
-        }
-    </style>
+    <link rel="stylesheet" href="../css/styles-7.css">
 </head>
 <body>
     <div class="container">
@@ -278,7 +114,22 @@
             <strong>💡 Nota:</strong> Abre la consola del navegador (F12) para ver la estructura completa de cada objeto y cómo se accede a sus propiedades y métodos.
         </div>
     </div>
-
-    <script src="js/script-7.js"></script>
+<div>
+    <a href="../index.html"
+       style="
+           display:inline-block;
+           padding:12px 20px;
+           background:#4e8cff;
+           color:white;
+           font-size:18px;
+           text-decoration:none;
+           border-radius:8px;
+           font-weight:bold;
+           box-shadow:0 4px 8px rgba(0,0,0,0.2);
+           transition:0.3s;
+       "
+    >Volver al Menú Principal</a>
+</div>   
+    <script src="../js/script-7.js"></script>
 </body>
 </html>

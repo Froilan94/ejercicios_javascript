@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hoja de trabajo de ejercicios</title>
+    <link rel="stylesheet" href="../css/styles.css">    
+</head>
+<body>
+   <h1>Salidas a Pantalla</h1>
+   <h3>1. Mensaje de bienvenida</h3>
+  <div class="ejercicio">
+  <!-- Botón -->
+  <button onclick="mostrarMensaje()">Mensaje</button> 
+  </div> 
+  <div class="ejercicio">    
+     <h3>2. Suma de dos numeros</h3>
+
+  <!-- etiquetas y cuadros de ingreso de datos -->
+    <label for="num1">Ingrese el primer número:</label>
+    <input type="number" id="num1"><br><br>
+
+    <label for="num2">Ingrese el segundo número:</label>
+    <input type="number" id="num2"><br><br>
+
+    <button onclick="sumarNumeros()">Sumar</button>
+</div>
+  <div class="ejercicio">
+     <h3>3. Saludo con Nombre</h3>
+
+    <button onclick="SaludoconNombre()">Saludos</button>
+</div> 
+  <div class="ejercicio"> 
+     <h3>4. Mostrar Varibale con Valor</h3>
+    <button onclick="Valorvabiable()">Valor variable</button>
+</div>
+  <div class="ejercicio"> 
+     <h3>5. Fecha Actual</h3>
+    <button onclick="FechaActual()">Fecha</button>
+</div>
+  <div class="ejercicio"> 
+     <h3>6. Hola mundo en un document write</h3>
+    <button onclick="UnHello()">HelloWorld</button>
+</div>   
+<div>
+    <a href="../index.html"
+       style="
+           display:inline-block;
+           padding:12px 20px;
+           background:#4e8cff;
+           color:white;
+           font-size:18px;
+           text-decoration:none;
+           border-radius:8px;
+           font-weight:bold;
+           box-shadow:0 4px 8px rgba(0,0,0,0.2);
+           transition:0.3s;
+       "
+    >Volver al Menú Principal</a>
+</div>    
+  <script src="../js/script.js"></script> 
+</body>
+</html>
